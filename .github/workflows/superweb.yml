@@ -1,0 +1,16 @@
+ name: runapplication
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubantu 
+    steps:
+      - name: mycode
+        uses: actions/checkout@v2
+      - name: install packages
+        run: pip install -t .
+
+  test:
+    runs-on: ubantu
+    needs: bulid
+    steps:
